@@ -3,4 +3,4 @@ This work demonstrates OCR capabilities using DSPy library with Google Gemini LL
 
 
 ## Demo Video Link
-[![Watch the video](https://img.youtube.com/vi/your_video_id/maxresdefault.jpg)](https://youtu.be/WGlkf3A1yKI)
+[![Watch the video](https://img.youtube.com/vi/WGlkf3A1yKI/0.jpg)](https://youtu.be/WGlkf3A1yKI)
