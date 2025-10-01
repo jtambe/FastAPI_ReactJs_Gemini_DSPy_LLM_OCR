@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  fastapi:
+    build: ./ocr_fastapi
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://myuser:mypassword@postgres:5432/mydb
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ocr_fastapi:/app/ocr_fastapi
+    restart: always
+
+  reactjs:
+    build: ./ocr_react_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - fastapi
+    volumes:
+      - ./ocr_react_app/src:/app/src  # Mount your local src directory to the container's /app/src
+      - ./ocr_react_app/public:/app/public # Mount your local public directory to the container's /app/public
+    restart: always
+
+volumes:
+  postgres_data:
+

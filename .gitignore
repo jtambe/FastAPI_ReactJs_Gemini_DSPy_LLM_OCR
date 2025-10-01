@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# React
+node_modules/
+/build
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Project specific
+uploaded_invoices/
